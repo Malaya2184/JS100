@@ -10,6 +10,7 @@
 //             </div>
 //   }
 // ========================================================
+
 // import React from "react";
 
 // class Welcome extends React.Component {
@@ -19,36 +20,72 @@
 // }
 
 // =========================================================
-// import React from 'react';
-// class Welcome extends React.Component {
-//     constructor(props) {
-//     super(props);
-//     this.state = {date: new Date()};
-//   }
-//   tick() {
-//     this.setState({
-//       date: new Date()
-//     });
-//   }
-//   componentDidMount() {
+import React from 'react';
+class Welcome extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {date: new Date()};
+        this.tick = this.tick.bind(this);
+        
+    }
+
+//     componentDidMount() {
 //     this.timerID = setInterval(
 //       () => this.tick(),
 //       1000
 //     );
 //   }
-//     render() {
-//       return (
-//         <div>
-//       <h1>Hello, world!</h1>
-//       <h2>It is {new Date().toLocaleTimeString()}.</h2>
-//     </div>
-//       )
+//     componentWillUnmount(){
+//         clearInterval(this.timerID);
 //     }
+    // tikki(){
+    //     console.log("method outside the tick method")
+    // }
+    tick()
+    {
+        // e.preventDefault();
+    this.setState({
+      date: new Date()
+    });
+    // this.tikki()
+    // =========================================
+    // console.log(this);
+    // console.log("hii this is tick")
+
+    // function abc() {
+    //     console.log("normal function");
+    // };
+    // const xyz= ()=>(console.log("arrow"));
+    // abc();
+    // xyz();
+    
+  }
+//   tok = () => {
+//     this.setState({
+//       date: new Date()
+//     });
 //   }
 
-//   export default Welcome;
+//   1st render function called when the app starts
+    render() {
+      return (
+        <div>
+      {/* <h1>Hello, world!</h1> */}
+      <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+      {/* <button onClick= {this.tick}>update here</button> */}
+      <a href={"#"} onClick={this.tick.bind(this)} >click</a>
+      {/* <a href={"#"} onClick={() => (this.tick())} >click</a> */}
+      {/* <a href={"#"} onClick={this.tok} >click</a> */}
+    </div>
+      )
+    }
+  }
+
+  export default Welcome;
 
 // =========================================================
 
 // export default Welcome;
 // export default MultipleWc;
+
+
