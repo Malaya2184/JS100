@@ -28,6 +28,7 @@
 
 import React from "react";
 import logo from "./logo.svg";
+import { Component } from 'react';
 import "./App.css";
 import Welcome from "./test";
 // import MultipleWc from "./test";
@@ -45,7 +46,9 @@ function App() {
           {/* <Welcome myname="spider"/> */}
           {/* <MultipleWc myage = "25"/> */}
           <Welcome/>
+          
         </h2>
+        
       </header>
     </div>
   );
@@ -54,13 +57,15 @@ function App() {
 
 // class App extends React.Component {
 //   render() {
+//     // const arrr = this.props.nummr
+//     // console.log(arrr);
 //     return(
 
 //       <div className="App">
 //       <header className= "App-header">
 //         <img src={logo} alt = "spider" className="App-logo" />
 //         <div>
-
+        
 //         </div>
 
 //       </header>

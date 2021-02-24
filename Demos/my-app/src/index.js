@@ -4,9 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// const arr = [10,20,30,40,50]
 ReactDOM.render(
+  //  in app props of the array can be pass as : nummr = {arr} which can be acessable by the app.js by this.props.nummr
   <React.StrictMode>
-    <App />
+    <App />  
   </React.StrictMode>,
   document.getElementById('root')
 );
