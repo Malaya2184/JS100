@@ -30,7 +30,8 @@ import React from "react";
 import logo from "./logo.svg";
 import { Component } from 'react';
 import "./App.css";
-import Welcome from "./test";
+import Welcome2 from "./test1";
+// import Welcome from "./test";
 // import MultipleWc from "./test";
 
 function App() {
@@ -45,8 +46,8 @@ function App() {
           {/* {element} */}
           {/* <Welcome myname="spider"/> */}
           {/* <MultipleWc myage = "25"/> */}
-          <Welcome/>
-          
+          {/* <Welcome/> */}
+          <Welcome2/>
         </h2>
         
       </header>
