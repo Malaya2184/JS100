@@ -8,6 +8,7 @@ const alanKey = '7182b4f4feedfdadb0673bf3c40169432e956eca572e1d8b807a3e2338fdd0d
 
 const App = () =>{
     const [NewsArticles, setNewsArticles] = useState([]);
+    const [activeArticle, setActiveArticle] = useState(-1);
     const classes = useStyles()
     useEffect(() => {
         alanBtn({
@@ -18,7 +19,10 @@ const App = () =>{
                     console.log(articles);
                     // console.log(articles.length);
                     setNewsArticles(articles)
+                    setActiveArticle(-1)
                 }
+                else if(command === 'highlight'){
+                    setActiveArticle((prevActiveArticle) => prevActiveArticle + 1)}
             }
         })
     }, [])
@@ -28,7 +32,7 @@ const App = () =>{
         <div className={classes.logoContainer}>
             <img src={logo} alt="logo" className={classes.projectLogo}/>
         </div>
-        <NewsCards articles ={NewsArticles}/>
+        <NewsCards articles ={NewsArticles} activeArticle={activeArticle}/>
     </div>
     );
 }
