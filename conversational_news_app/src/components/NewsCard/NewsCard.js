@@ -1,12 +1,23 @@
-import React from 'react';
+import React, {useState, useEffect, createRef} from 'react';
 import {Card, CardActions, CardActionArea, CardContent, CardMedia, Button, Typography} from '@material-ui/core';
 import useStyles from './styles';
 import classNames from 'classnames';
 
 const NewsCard= ({article:{ description, publishedAt, source, title, url, urlToImage},i, activeArticle})=> {
     const classes = useStyles();
+    const [elRefs, setelRefs] = useState([]);
+    const scrollToRef = (ref) => window.scroll(0, ref.current.offsetTop - 50);
+    useEffect(() => {
+        setelRefs((refs) => Array(20).fill().map((_, i) => refs[i] || createRef()))
+    }, []);
+    useEffect(() => {
+        if (i === activeArticle && elRefs[activeArticle]) {
+            scrollToRef(elRefs[activeArticle]);
+        }
+
+    },[i, activeArticle,elRefs])
     return (
-        <Card className={classNames(classes.card, activeArticle === i ? classes.activeCard : null)}>
+        <Card ref = {elRefs[i]} className={classNames(classes.card, activeArticle === i ? classes.activeCard : null)}>
             <CardActionArea hre={url} targe='_blank'>
                 <CardMedia className={classes.media} image={urlToImage || 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fw7.pngwing.com%2Fpngs%2F742%2F478%2Fpng-transparent-express-news-pakistan-daily-express-92-news-others-miscellaneous-television-text-thumbnail.png&imgrefurl=https%3A%2F%2Fwww.pngwing.com%2Fen%2Fsearch%3Fq%3Dsamaa%2BTv&tbnid=BAHDw5lb-OOneM&vet=12ahUKEwjv7rSv4ZHwAhV0geYKHXkVBK0QMygWegUIARDkAQ..i&docid=VAgJi532DI7N-M&w=360&h=180&q=news%20png%20thumbnail&ved=2ahUKEwjv7rSv4ZHwAhV0geYKHXkVBK0QMygWegUIARDkAQ'}/>
                 <div className ={classes.details}>
