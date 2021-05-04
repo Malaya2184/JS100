@@ -3,6 +3,7 @@ import {Card, CardActions, CardActionArea, CardContent, CardMedia, Button, Typog
 import useStyles from './styles';
 import classNames from 'classnames';
 
+
 const NewsCard= ({article:{ description, publishedAt, source, title, url, urlToImage},i, activeArticle})=> {
     const classes = useStyles();
     const [elRefs, setelRefs] = useState([]);
